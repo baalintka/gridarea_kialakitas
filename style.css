@@ -1,0 +1,89 @@
+*{ /* minden html elemre ervenyes */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header ,nav ,article ,aside ,footer{
+    border:  1px solid gray;
+    padding: 10px;
+}
+body{
+    background-color: coral;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+main{
+    background-color: violet;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 2fr 2fr 2fr;
+    grid-template-areas: 
+        "h h h"
+        "n n n"
+        "b a j"
+        "f f f"    
+    ;
+}
+/* gyerekeknek nevet adunk grid area */
+header{
+    grid-area: h;
+}
+nav{
+    grid-area: n;
+}
+article{
+    grid-area: a;
+}
+footer{
+    grid-area: f;
+}
+#bal{
+    grid-area: b;
+}
+#jobb{
+    grid-area: j;
+}
+/* töréspont media querryvel
+mobilnézet:
+*/
+@media screen and (max-width: 700px) {
+    body{
+        width: 100%;
+        font-size:  4vb;
+    }
+    main {
+      
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 50px auto auto 50px;
+      grid-template-areas: 
+            "h h"
+            "n n"
+            "a j"
+            "b b"
+            "f f"
+      ;
+    }
+    
+  }
+@media screen and (max-width: 600px) {
+    body{
+        width: 100%;
+        font-size:  3vb;
+    }
+    main {
+      
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px auto auto 50px;
+      grid-template-areas: 
+            "h"
+            "n"
+            "a"
+            "a"
+            "j"
+            "b"
+            "f"
+      ;
+    }
+    
+  }
